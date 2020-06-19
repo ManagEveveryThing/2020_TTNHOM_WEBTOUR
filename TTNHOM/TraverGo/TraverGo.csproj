@@ -105,13 +105,52 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DB\Blog.cs" />
+    <Compile Include="Models\DB\Cart.cs" />
+    <Compile Include="Models\DB\Category.cs" />
+    <Compile Include="Models\DB\colName.cs" />
+    <Compile Include="Models\DB\Customer.cs" />
     <Compile Include="Models\DB\DBContextTour.cs" />
+    <Compile Include="Models\DB\DestinationReview.cs" />
+    <Compile Include="Models\DB\DestinationTour.cs" />
+    <Compile Include="Models\DB\detailBlog.cs" />
+    <Compile Include="Models\DB\DetailCart.cs" />
+    <Compile Include="Models\DB\DSDatXe.cs" />
+    <Compile Include="Models\DB\DSKSCanTT.cs" />
+    <Compile Include="Models\DB\DSKSTheoTrip.cs" />
+    <Compile Include="Models\DB\DSKSTrongWL.cs" />
+    <Compile Include="Models\DB\DSTourCanTT.cs" />
+    <Compile Include="Models\DB\DSTourTrongWL.cs" />
+    <Compile Include="Models\DB\DSTripTheoTour.cs" />
+    <Compile Include="Models\DB\ElecBill.cs" />
+    <Compile Include="Models\DB\HomeStay.cs" />
+    <Compile Include="Models\DB\HotelSevice.cs" />
+    <Compile Include="Models\DB\MyWebSite.cs" />
+    <Compile Include="Models\DB\Nation.cs" />
+    <Compile Include="Models\DB\PhanQuyen.cs" />
+    <Compile Include="Models\DB\Province.cs" />
+    <Compile Include="Models\DB\sysdiagram.cs" />
+    <Compile Include="Models\DB\Taxi.cs" />
+    <Compile Include="Models\DB\TenCacBang.cs" />
+    <Compile Include="Models\DB\Tour.cs" />
+    <Compile Include="Models\DB\TourDestination.cs" />
+    <Compile Include="Models\DB\Trip.cs" />
+    <Compile Include="Models\DB\VIEW_detailCart.cs" />
+    <Compile Include="Models\DB\VIEW_top4Nation.cs" />
+    <Compile Include="Models\DB\VIEW_top6DestianationTour.cs" />
+    <Compile Include="Models\DB\WishList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Views\Shared\_LayoutPage1.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Blog.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Destination.cshtml" />
+    <Content Include="Views\Home\Cart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -121,7 +160,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Home\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

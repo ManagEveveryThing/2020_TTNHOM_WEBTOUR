@@ -1,0 +1,347 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+@using TraverGo.Models.DB;
+
+
+<div class="hero-wrap js-fullheight" style="background-image: url('/Contents/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+            <div class="col-md-9 text text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                <a href="https://vimeo.com/45830194" class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
+                    <span class="ion-ios-play"></span>
+                </a>
+                <p class="caps" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Travel to the any corner of the world, without going around in circles</p>
+                <h1 data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Make Your Tour Amazing With Us</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ftco-section-search">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 tabulation-search">
+                <div class="element-animate">
+                    <div class="nav nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                        <a class="nav-link p-3 active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><span>01</span> Flight</a>
+                        <a class="nav-link p-3" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><span>02</span> Hotel</a>
+                        <a class="nav-link p-3" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><span>03</span> Car Rent</a>
+                    </div>
+                </div>
+
+                <div class="tab-content py-5" id="v-pills-tabContent">
+                    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                        <div class="block-17">
+                            <form action="" method="post" class="d-block d-lg-flex">
+                                <div class="fields d-block d-lg-flex">
+
+                                    <div class="textfield-search one-third"><input type="text" class="form-control" placeholder="Search Location"></div>
+
+                                    <div class="check-in one-third"><input type="text" id="checkin_date" class="form-control" placeholder="Check-in date"></div>
+
+                                    <div class="check-out one-third"><input type="text" id="checkout_date" class="form-control" placeholder="Check-out date"></div>
+                                    <div class="select-wrap one-third">
+                                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                        <select name="" id="" class="form-control">
+                                            <option value="">Guest</option>
+                                            <option value="">1</option>
+                                            <option value="">2</option>
+                                            <option value="">3</option>
+                                            <option value="">4+</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <input type="submit" class="search-submit btn btn-primary" value="Find Flights">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                        <div class="block-17">
+                            <form action="" method="post" class="d-block d-lg-flex">
+                                <div class="fields d-block d-lg-flex">
+                                    <div class="textfield-search one-third"><input type="text" class="form-control" placeholder="Search Hotel"></div>
+
+                                    <div class="check-in one-third"><input type="text" id="checkin_date" class="form-control" placeholder="Check-in date"></div>
+
+                                    <div class="check-out one-third"><input type="text" id="checkout_date" class="form-control" placeholder="Check-out date"></div>
+                                    <div class="select-wrap one-third">
+                                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                        <select name="" id="" class="form-control">
+                                            <option value="">Guest</option>
+                                            <option value="">1</option>
+                                            <option value="">2</option>
+                                            <option value="">3</option>
+                                            <option value="">4+</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <input type="submit" class="search-submit btn btn-primary" value="Find Hotels">
+                            </form>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                        <div class="block-17">
+                            <form action="" method="post" class="d-block d-lg-flex">
+                                <div class="fields d-block d-lg-flex">
+                                    <div class="textfield-search one-third"><input type="text" class="form-control" placeholder="Search Location"></div>
+
+                                    <div class="check-in one-third"><input type="text" id="start_date" class="form-control" placeholder="Start date"></div>
+
+                                    <div class="check-out one-third"><input type="text" id="return_date" class="form-control" placeholder="Return date"></div>
+                                    <div class="select-wrap one-third">
+                                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                        <select name="" id="" class="form-control">
+                                            <option value="">Guest</option>
+                                            <option value="">1</option>
+                                            <option value="">2</option>
+                                            <option value="">3</option>
+                                            <option value="">4+</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <input type="submit" class="search-submit btn btn-primary" value="Find Car">
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="ftco-section services-section bg-light">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-6 order-md-last heading-section pl-md-5 ftco-animate">
+                <h2 class="mb-4">It's time to start your adventure</h2>
+                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                <p>
+                    Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+                    A small river named Duden flows by their place and supplies it with the necessary regelialia.
+                </p>
+                <p><a href="#" class="btn btn-primary py-3 px-4">Search Destination</a></p>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+                        <div class="media block-6 services d-block">
+                            <div class="icon"><span class="flaticon-paragliding"></span></div>
+                            <div class="media-body">
+                                <h3 class="heading mb-3">Activities</h3>
+                                <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+                        <div class="media block-6 services d-block">
+                            <div class="icon"><span class="flaticon-route"></span></div>
+                            <div class="media-body">
+                                <h3 class="heading mb-3">Travel Arrangements</h3>
+                                <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+                        <div class="media block-6 services d-block">
+                            <div class="icon"><span class="flaticon-tour-guide"></span></div>
+                            <div class="media-body">
+                                <h3 class="heading mb-3">Private Guide</h3>
+                                <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+                        <div class="media block-6 services d-block">
+                            <div class="icon"><span class="flaticon-map"></span></div>
+                            <div class="media-body">
+                                <h3 class="heading mb-3">Location Manager</h3>
+                                <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-counter img" id="section-counter">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-6 d-flex">
+                <div class="img d-flex align-self-stretch" style="background-image:url(/Contents/images/about.jpg);"></div>
+            </div>
+            <div class="col-md-6 pl-md-5 py-5">
+                <div class="row justify-content-start pb-3">
+                    <div class="col-md-12 heading-section ftco-animate">
+                        <h2 class="mb-4">Make Your Tour Memorable and Safe With Us</h2>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center mb-4">
+                            <div class="text">
+                                <strong class="number" data-number="300">0</strong>
+                                <span>Successful Tours</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center mb-4">
+                            <div class="text">
+                                <strong class="number" data-number="24000">0</strong>
+                                <span>Happy Tourist</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 justify-content-center counter-wrap ftco-animate">
+                        <div class="block-18 text-center mb-4">
+                            <div class="text">
+                                <strong class="number" data-number="200">0</strong>
+                                <span>Place Explored</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center pb-4">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Best Nation</h2>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (VIEW_top4Nation item in top4)
+            {
+                <div class="col-md-3 ftco-animate">
+                    <div class="project-destination">
+                        <a href="#" class="img" style="background-image: url(/Contents/images/@item.pic);">
+                            <div class="text">
+                                <h3>@item.tenQG</h3>
+                                <span>@item.countTour Tours</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section ftco-no-pt">
+    <div class="container">
+        <div class="row justify-content-center pb-4">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Tour Destination</h2>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (DestinationTour item in top6)
+            {
+                <div class="col-md-4 ftco-animate fadeInUp ftco-animated product_contain">
+                    <div class="project-wrap">
+                        <a href="#" class="img" style="background-image: url(/Contents/images/TourDestianton/@item.pic);"></a>
+                        <div class="text p-4">
+                            <span hidden class="ID_Tour">@item.maDD</span>
+                            <span class="price">$@item.Cost/Person</span>
+                            <span class="days">@item.countTour Tours</span>
+                            <h3><a href="#">@item.tenDD</a></h3>
+                            <p class="location"><span class="ion-ios-map"></span> @item.tenTinh, @item.tenQG</p>
+                            <ul>
+                                <!--  <li><span class="flaticon-shower"></span>2</li>
+                                <li><span class="flaticon-king-size"></span>3</li>-->
+                                <li><span class="flaticon-mountains"></span>@item.near</li>
+                                <li><span></span></li>
+                            </ul>
+                            <input type="button" class="form-control btn btn-primary add_toCart" value="Add Cart" />
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="modal fade" id="myModal" role="dialog"> </div>
+    </div>
+</section>
+
+<section class="ftco-section testimony-section bg-bottom" style="background-image: url(/Contents/images/bg_3.jpg);">
+    <div class="container">
+        <div class="row justify-content-center pb-4">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+                <h2 class="mb-4">Tourist Feedback</h2>
+            </div>
+        </div>
+        <div class="row ftco-animate">
+            <div class="col-md-12">
+                <div class="carousel-testimony owl-carousel ftco-owl">
+                    @foreach (Customer item in fb)
+                    {
+                        <div class="item">
+                            <div class="testimony-wrap py-4">
+                                <div class="text">
+                                    <p class="mb-4">@item.Feedback</p>
+                                    <div class="d-flex align-items-center">
+                                        <div class="user-img" style="background-image: url(/Contents/images/@item.pic"></div>
+                                        <div class="pl-3">
+                                            <p class="name">@item.tenKH @item.hoKH</p>
+                                            <span class="position">@item.Job</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center pb-4">
+            <div class="col-md-12 heading-section text-center ftco-animate">
+                <h2 class="mb-4">Recent Post</h2>
+            </div>
+        </div>
+        <div class="row d-flex">
+            @foreach (detailBlog item in blogs3)
+            {
+                <div class="col-md-4 d-flex ftco-animate">
+                    <div class="blog-entry justify-content-end">
+                        <a href="blog-single.html" class="block-20" style="background-image: url('/Contents/images/@item.pic');">
+                        </a>
+                        <div class="text mt-3 float-right d-block">
+                            <div class="d-flex align-items-center mb-4 topp">
+                                <div class="one">
+                                    <span class="day">21</span>
+                                </div>
+                                <div class="two">
+                                    <span class="yr">2019</span>
+                                    <span class="mos">@item.tenDD</span>
+                                </div>
+                            </div>
+                            <h3 class="heading"><a href="#">@item.header</a></h3>
+                            <p>@item.content</p>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+        </div>
+    </div>
+</section>
+<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+

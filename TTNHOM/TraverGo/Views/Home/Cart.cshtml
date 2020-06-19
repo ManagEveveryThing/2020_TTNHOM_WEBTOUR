@@ -1,0 +1,353 @@
+﻿
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+@using TravarGo.Models.DB;
+
+@model List<VIEW_detailCart>
+
+<link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+<!-- Css Styles -->
+@*<link href="~/Contents/CartPage/css/bootstrap.min.css" rel="stylesheet" />*@
+@*<link rel="stylesheet" href="~/Contents/CartPage/css/bootstrap.min.css" type="text/css">*@
+<link rel="stylesheet" href="~/Contents/CartPage/css/font-awesome.min.css" type="text/css">
+<link rel="stylesheet" href="~/Contents/CartPage/css/themify-icons.css" type="text/css">
+<link rel="stylesheet" href="~/Contents/CartPage/css/elegant-icons.css" type="text/css">
+@*<link rel="stylesheet" href="~/Contents/CartPage/css/owl.carousel.min.css" type="text/css">*@
+<link rel="stylesheet" href="~/Contents/CartPage/css/nice-select.css" type="text/css">
+@*<link rel="stylesheet" href="~/Contents/CartPage/css/jquery-ui.min.css" type="text/css">*@
+<link rel="stylesheet" href="~/Contents/CartPage/css/slicknav.min.css" type="text/css">
+@*<link rel="stylesheet" href="~/Contents/CartPage/css/style.css" type="text/css">*@
+<style>
+
+    img {
+        width: 200px;
+    }
+
+    .shopping-cart {
+        padding-top: 80px;
+        padding-bottom: 60px;
+    }
+
+    .cart-table {
+        margin-bottom: 40px;
+    }
+
+        .cart-table table {
+            width: 100%;
+            min-width: 480px;
+            border: 1px solid #ebebeb;
+        }
+
+            .cart-table table tr th {
+                font-size: 16px;
+                color: #252525;
+                font-weight: 700;
+                border-bottom: 1px solid #ebebeb;
+                text-align: center;
+                padding: 18px 0 19px;
+                text-transform: uppercase;
+            }
+
+                .cart-table table tr th.p-name {
+                    text-align: left;
+                }
+
+            .cart-table table tr td {
+                text-align: center;
+                padding-bottom: 34px;
+            }
+
+                .cart-table table tr td.first-row {
+                    padding-top: 30px;
+                }
+
+                .cart-table table tr td.cart-pic {
+                    width: 21%;
+                }
+
+                .cart-table table tr td.cart-title {
+                    text-align: left;
+                }
+
+                    .cart-table table tr td.cart-title h5 {
+                        color: #252525;
+                    }
+
+                .cart-table table tr td.p-price {
+                    width: 16%;
+                }
+
+                .cart-table table tr td.p-price,
+                .cart-table table tr td.total-price {
+                    color: #e7ab3c;
+                    font-size: 16px;
+                    font-weight: 700;
+                }
+
+                .cart-table table tr td.qua-col {
+                    width: 16%;
+                }
+
+                    .cart-table table tr td.qua-col .quantity {
+                        display: -webkit-box;
+                        display: -ms-flexbox;
+                        display: flex;
+                        -webkit-box-pack: center;
+                        -ms-flex-pack: center;
+                        justify-content: center;
+                    }
+
+                    .cart-table table tr td.qua-col .pro-qty {
+                        width: 123px;
+                        height: 46px;
+                        border: 2px solid #ebebeb;
+                        padding: 0 15px;
+                        float: left;
+                    }
+
+                        .cart-table table tr td.qua-col .pro-qty .qtybtn {
+                            font-size: 24px;
+                            color: #b2b2b2;
+                            float: left;
+                            line-height: 38px;
+                            cursor: pointer;
+                            width: 18px;
+                        }
+
+                            .cart-table table tr td.qua-col .pro-qty .qtybtn.dec {
+                                font-size: 30px;
+                            }
+
+                        .cart-table table tr td.qua-col .pro-qty input {
+                            text-align: center;
+                            width: 52px;
+                            font-size: 14px;
+                            font-weight: 700;
+                            border: none;
+                            color: #4c4c4c;
+                            line-height: 40px;
+                            float: left;
+                        }
+
+                .cart-table table tr td.total-price {
+                    width: 12%;
+                }
+
+                .cart-table table tr td.close-td {
+                    font-size: 16px;
+                    color: #252525;
+                    width: 8%;
+                }
+
+                    .cart-table table tr td.close-td i {
+                        cursor: pointer;
+                    }
+
+    .cart-buttons {
+        margin-bottom: 34px;
+    }
+
+        .cart-buttons .continue-shop {
+            color: #b2b2b2;
+            border: 2px solid #ebebeb;
+            background: #ffffff;
+            margin-right: 8px;
+            padding: 12px 20px 12px 20px;
+            margin-bottom: 10px;
+        }
+
+        .cart-buttons .up-cart {
+            color: #252525;
+            background: #f3f3f3;
+            border: 2px solid #ebebeb;
+            padding: 12px 20px 12px 20px;
+        }
+
+    .discount-coupon {
+        margin-bottom: 30px;
+    }
+
+        .discount-coupon h6 {
+            color: #232530;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .discount-coupon .coupon-form {
+            position: relative;
+        }
+
+            .discount-coupon .coupon-form input {
+                width: 100%;
+                height: 46px;
+                border: 2px solid #ebebeb;
+                color: #b2b2b2;
+                font-size: 14px;
+                padding-left: 20px;
+            }
+
+            .discount-coupon .coupon-form .coupon-btn {
+                position: absolute;
+                right: 0;
+                top: 0;
+                color: #252525;
+                background: transparent;
+                border: 1px solid transparent;
+                padding: 13px 25px 10px 35px;
+            }
+
+    .proceed-checkout ul {
+        border: 2px solid #ebebeb;
+        background: #f3f3f3;
+        padding-left: 25px;
+        padding-right: 25px;
+        padding-top: 16px;
+        padding-bottom: 20px;
+    }
+
+        .proceed-checkout ul li {
+            list-style: none;
+            font-size: 16px;
+            font-weight: 700;
+            color: #252525;
+            text-transform: uppercase;
+            overflow: hidden;
+        }
+
+            .proceed-checkout ul li.subtotal {
+                font-weight: 400;
+                text-transform: capitalize;
+                border-bottom: 1px solid #ffffff;
+                padding-bottom: 14px;
+            }
+
+                .proceed-checkout ul li.subtotal span {
+                    font-weight: 700;
+                }
+
+            .proceed-checkout ul li.cart-total {
+                padding-top: 10px;
+            }
+
+                .proceed-checkout ul li.cart-total span {
+                    color: #e7ab3c;
+                }
+
+            .proceed-checkout ul li span {
+                float: right;
+            }
+
+    .proceed-checkout .proceed-btn {
+        font-size: 14px;
+        font-weight: 700;
+        color: #ffffff;
+        background: #252525;
+        text-transform: uppercase;
+        padding: 15px 25px 14px 25px;
+        display: block;
+        text-align: center;
+    }
+</style>
+
+<section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('/Contents/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
+            <div class="col-md-9 ftco-animate pb-5 text-center">
+                <h1 class="mb-3 bread">Cart</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="#">Account <i class="ion-ios-arrow-forward"></i></a></span> <span>Cart <i class="ion-ios-arrow-forward"></i></span></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Shopping Cart Section Begin -->
+<section class="shopping-cart spad">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cart-table">
+                    <span hidden class="IDcart">@Model[0].cartID</span>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th class="p-name">Product Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th class="x_deleteAllCart"><i class="ti-close"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody class="contain_product_cart">
+                            @if (Model.Count() > 0)
+                            {
+                                foreach (VIEW_detailCart item in Model)
+                                {
+                                    <tr>
+                                        <td hidden class="ID_Tour">@item.maDD </td>
+                                        <td class="cart-pic first-row"><img src="~/Contents/images/TourDestianton/@item.pic" alt=""></td>
+                                        <td class="cart-title first-row">
+                                            <h5>@item.tenDD</h5>
+                                        </td>
+                                        <td class="p-price first-row">@item.Cost</td>
+                                        <td class="qua-col first-row">
+                                            <div class="quantity">
+                                                <div class="pro-qty">
+                                                    <input type="text" value="@item.sl">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="total-price first-row">@item.Cost</td>
+                                        <td class="close-td first-row x_deleteOnCart"><i class="ti-close"></i></td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="cart-buttons">
+                            <a href="#" class="primary-btn continue-shop">Continue shopping</a>
+                            <a href="#" class="primary-btn up-cart">Update cart</a>
+                        </div>
+                        <div class="discount-coupon">
+                            <h6>Discount Codes</h6>
+                            <form action="#" class="coupon-form">
+                                <input type="text" placeholder="Enter your codes">
+                                <button type="submit" class="site-btn coupon-btn">Apply</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 offset-lg-4">
+                        <div class="proceed-checkout">
+                            <ul>
+                                <li class="subtotal">Subtotal <span>$240.00</span></li>
+                                <li class="cart-total">Total <span>$240.00</span></li>
+                            </ul>
+                            <a href="#" class="proceed-btn">PROCEED TO CHECK OUT</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="~/Contents/CartPage/js/jquery-3.3.1.min.js"></script>
+<script src="~/Contents/CartPage/js/bootstrap.min.js"></script>
+<script src="~/Contents/CartPage/js/jquery-ui.min.js"></script>
+<script src="~/Contents/CartPage/js/jquery.countdown.min.js"></script>
+<script src="~/Contents/CartPage/js/jquery.nice-select.min.js"></script>
+<script src="~/Contents/CartPage/js/jquery.zoom.min.js"></script>
+<script src="~/Contents/CartPage/js/jquery.dd.min.js"></script>
+<script src="~/Contents/CartPage/js/jquery.slicknav.js"></script>
+<script src="~/Contents/CartPage/js/owl.carousel.min.js"></script>
+<script src="~/Contents/CartPage/js/main.js"></script>
+<!-- Shopping Cart Section End -->
