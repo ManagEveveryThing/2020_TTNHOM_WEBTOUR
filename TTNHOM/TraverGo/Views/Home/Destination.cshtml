@@ -2,8 +2,10 @@
 @{
     ViewBag.Title = "Destination";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+    var count = ViewBag.countPageP;
+    var top4 = ViewBag.top4Nation;
+    List<Cart> cartF = ViewBag.Cart;
 }
-
 @using TraverGo.Models.DB;
 @model List<DestinationTour>
 <style>

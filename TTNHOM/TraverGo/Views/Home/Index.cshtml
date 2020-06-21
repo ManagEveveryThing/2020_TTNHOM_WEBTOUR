@@ -2,8 +2,15 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+    var top4 = ViewBag.top4Nation;
+    var top6 = ViewBag.top6DT;
+    List<Cart> cartF = ViewBag.Cart;
+    var fb = ViewBag.FeedBack;
+    var blogs3 = ViewBag.top3Blog;
 }
 @using TraverGo.Models.DB;
+
+
 
 
 <div class="hero-wrap js-fullheight" style="background-image: url('/Contents/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
