@@ -38,16 +38,36 @@ namespace TraverGo.Controllers
             ViewBag.top4Nation = context.VIEW_top4Nation.Take(4).ToList();
             var model = context.DestinationTours.Take(9).ToList();
             return View(model);
-           // return View();
+            // return View();
         }
         public ActionResult Contact()
         {
             return View();
         }
-        
+
         public ActionResult Cart()
         {
-            return View();
+            if (AccountController.username == null || AccountController.username == "")
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            else
+            {
+                // gán cart = section hiện tại
+                var model = new List<VIEW_detailCart>();
+                if (AccountController.username != null)
+                {
+                    model = context.Database.SqlQuery<VIEW_detailCart>("select * from VIEW_detailCart where username = '" + AccountController.username + "'").ToList();
+                }
+                var cart = (List<DetailCart>)Session["CartSession"];
+                // nếu trống thì tao mới
+                if (cart == null)
+                {
+                    cart = new List<DetailCart>();
+                }
+
+                return View(model);
+            }
         }
     }
 }
