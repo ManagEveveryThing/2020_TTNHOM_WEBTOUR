@@ -1,0 +1,27 @@
+﻿
+@model List<TraverGo.Models.DB.VIEW_detailCart>
+
+@if (Model.Count() > 0)
+{
+    foreach (TraverGo.Models.DB.VIEW_detailCart item in Model)
+    {
+        <tr>
+            <td hidden class="ID_Tour">@item.maDD </td>
+            <td class="cart-pic first-row"><img src="~/Contents/images/TourDestianton/@item.pic" alt=""></td>
+            <td class="cart-title first-row">
+                <h5>@item.tenDD</h5>
+            </td>
+            <td class="p-price first-row">@item.Cost</td>
+            <td class="qua-col first-row">
+                <div class="quantity">
+                    <div class="pro-qty">
+                        <input type="text" value="@item.sl">
+                    </div>
+                </div>
+            </td>
+            <td class="total-price first-row">@item.Cost</td>
+            <td class="close-td first-row x_deleteOnCart"><i class="ti-close"></i></td>
+        </tr>
+    }
+}
+<script src="~/Contents/js/ajaxControl.js"></script>

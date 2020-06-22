@@ -1,0 +1,68 @@
+﻿
+
+<style>
+
+    .modal-header, h4, .close {
+        background-color: #5cb85c;
+        color: white !important;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .modal-footer {
+        background-color: #f9f9f9;
+    }
+
+    input {
+        margin-bottom: 8px;
+    }
+
+    .modal-dialog {
+        width: 1140px;
+    }
+
+    img {
+        width: 250px;
+        height: 300px;
+    }
+</style>
+@model TraverGo.Models.DB.DestinationTour
+
+<div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+            <h4>@Model.tenDD</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+            <form role="form" @*action="/Home/@ViewBag.actionName method="post"*@>
+                <div class="container">
+                    <div class="row">
+                        <input type="hidden" class="fied_tableName" name="TableName" value="@Model.maDD" />
+                    </div>
+                    <div class="row">
+                        <div class="span_2_of_3">
+                            <img src="~/Contents/images/TourDestianton/@Model.pic" />
+                        </div>
+                        <div class="span_1_of_3">
+                            <label>Nation:</label> <span>@Model.tenQG</span>
+                            <br />
+                            <label>Province:</label> <span>@Model.tenTinh</span>
+                            <br />
+                            <label>Near:</label> <span>@Model.near</span>
+                            <br />
+                            <label>Statics:</label>
+                            <br />
+                            <label>Hottel available:</label><span>@Model.countHomeStay</span>
+                            <label>Tour available:</label><span>@Model.countTour</span>
+                            <br />
+                        </div>
+                        <label>Decription:</label> <p>@Model.moTa</p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
