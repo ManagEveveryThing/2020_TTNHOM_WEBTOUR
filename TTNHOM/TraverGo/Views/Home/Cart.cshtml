@@ -272,7 +272,14 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="cart-table">
-                    <span hidden class="IDcart">@Model[0].cartID</span>
+                    @if (ViewBag.CartID == null)
+                    {
+                        <span hidden class="IDcart">@Model[0].cartID</span>
+                    }
+                    else
+                    {
+                        <span hidden class="IDcart">@ViewBag.CartID </span>
+                    }
                     <table>
                         <thead>
                             <tr>
@@ -291,19 +298,19 @@
                                 {
                                     <tr>
                                         <td hidden class="ID_Tour">@item.maDD </td>
-                                        <td class="cart-pic first-row"><img src="~/Contents/images/TourDestianton/@item.pic" alt=""></td>
+                                        <td class="cart-pic first-row"><img class="img_s" src="~/Contents/images/TourDestianton/@item.pic" alt=""></td>
                                         <td class="cart-title first-row">
-                                            <h5>@item.tenDD</h5>
+                                            <h5 class="tenDD">@item.tenDD</h5>
                                         </td>
-                                        <td class="p-price first-row">@item.Cost</td>
+                                        <td class="p-price first-row"><span class="cost_pro">@item.Cost</span><span>$</span></td>
                                         <td class="qua-col first-row">
                                             <div class="quantity">
                                                 <div class="pro-qty">
-                                                    <input type="text" value="@item.sl">
+                                                    <input class="soluong" type="text" value="@item.sl">
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="total-price first-row">@item.Cost</td>
+                                        <td class="total-price first-row"><span class="toal_Cost"></span><span>$</span></td>
                                         <td class="close-td first-row x_deleteOnCart"><i class="ti-close"></i></td>
                                     </tr>
                                 }
@@ -314,8 +321,8 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="cart-buttons">
-                            <a href="#" class="primary-btn continue-shop">Continue shopping</a>
-                            <a href="#" class="primary-btn up-cart">Update cart</a>
+                            <a href="@Url.Action("Home","Destination")" class="primary-btn continue-shop">Continue shopping</a>
+                            <a href="#" class="primary-btn up-cart" id="Update_cart_btn">Update cart</a>
                         </div>
                         <div class="discount-coupon">
                             <h6>Discount Codes</h6>
@@ -328,17 +335,18 @@
                     <div class="col-lg-4 offset-lg-4">
                         <div class="proceed-checkout">
                             <ul>
-                                <li class="subtotal">Subtotal <span>$240.00</span></li>
-                                <li class="cart-total">Total <span>$240.00</span></li>
+                                <li class="cart-total">Total <span class="cart_tol"></span><span>$</span></li>
                             </ul>
-                            <a href="#" class="proceed-btn">PROCEED TO CHECK OUT</a>
+                            <a href="#" class="proceed-btn payment_btn">PROCEED TO CHECK OUT</a>
                         </div>
                     </div>
                 </div>
+                <div class="modal fade" id="myModal_payment" role="dialog"> </div>
             </div>
         </div>
     </div>
 </section>
+
 
 <script src="~/Contents/CartPage/js/jquery-3.3.1.min.js"></script>
 <script src="~/Contents/CartPage/js/bootstrap.min.js"></script>
@@ -350,4 +358,5 @@
 <script src="~/Contents/CartPage/js/jquery.slicknav.js"></script>
 <script src="~/Contents/CartPage/js/owl.carousel.min.js"></script>
 <script src="~/Contents/CartPage/js/main.js"></script>
+<script src="~/Contents/CartPage/js/CartPage.js"></script>
 <!-- Shopping Cart Section End -->

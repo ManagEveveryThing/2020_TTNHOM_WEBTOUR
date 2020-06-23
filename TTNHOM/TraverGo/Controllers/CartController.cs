@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
 using TraverGo.Models.DB;
 namespace TraverGo.Controllers
 {
@@ -124,6 +125,45 @@ namespace TraverGo.Controllers
             else
                 return RedirectToAction("Login", "Account");
             return PartialView("_PartialPage_CartProduct", model);
+        }
+    
+        [HttpPost]
+        public void UpdateCart(List<VIEW_detailCart> VIEW_detailCarts)
+        {
+            DetailCart dCart = new DetailCart();
+            foreach(VIEW_detailCart it in VIEW_detailCarts)
+            {
+                dCart = db.DetailCarts.Find(it.cartID,it.maDD);
+                dCart.sl = it.sl;
+                db.SaveChanges();
+            }
+        }
+
+        [HttpPost]
+        public JsonResult Payment(List<VIEW_detailCart> detailCarts)
+        {
+            var modelList = detailCarts.ToArray();
+            
+            return Json(modelList, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public ActionResult PaymentShow()
+        {
+            return PartialView("_PartialPage_PaymentModal");
+        }
+
+        [HttpPost]
+        public void AcceptPayment(List<VIEW_detailCart> Data)
+        {
+            DetailCart dCart = new DetailCart();
+            foreach (VIEW_detailCart it in Data)
+            {
+                dCart = db.DetailCarts.Find(it.cartID, it.maDD);
+                db.DetailCarts.Remove(dCart);
+                db.SaveChanges();
+            }
+            //var model = db.Database.SqlQuery<VIEW_detailCart>("select * from VIEW_detailCart where username = '" + AccountController.username + "'").ToList();
+            //return View("Cart",model);
         }
     }
 }

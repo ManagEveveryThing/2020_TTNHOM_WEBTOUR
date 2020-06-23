@@ -1,0 +1,85 @@
+﻿
+
+<style>
+    .modal-content {
+        width: 1240px;
+        left: 10px;
+    }
+
+    .modal-header, h4, .close {
+        background-color: #5cb85c;
+        color: white !important;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    .modal-footer {
+        background-color: #f9f9f9;
+    }
+
+    input {
+        margin-bottom: 8px;
+    }
+
+    .modal-dialog {
+        width: 1140px;
+        margin-left: 100px
+    }
+
+    img {
+        width: 100px;
+        height:200px;
+    }
+</style>
+@using TraverGo.Models.DB;
+@model List<TraverGo.Models.DB.VIEW_detailCart>
+
+<div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header" style="padding:35px 50px;">
+            <h4>Payment</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body" style="padding:40px 50px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="cart-table">
+                            @if (Model != null)
+                            {
+                                <span hidden class="IDcart">@Model[0].cartID</span>
+                            }
+
+                            <table id="appendTabel">
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th class="p-name">Product Name</th>
+                                        <th>Price</th>
+                                        <th>Quantity</th>
+                                        <th>Total</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody class="contain_product_cart_modal">
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 offset-lg-4">
+                <div class="proceed-checkout">
+                    <ul>
+                        <li class="cart-total">Total <span class="cart_tol"></span><span>$</span></li>
+                    </ul>
+                    <a href="#" class="proceed-btn acc_payment_btn">Playment</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+<script src="~/Contents/CartPage/js/CartPage.js"></script>

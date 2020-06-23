@@ -26,7 +26,6 @@ namespace TraverGo.Models.DB
         public virtual DbSet<DSTripTheoTour> DSTripTheoTours { get; set; }
         public virtual DbSet<ElecBill> ElecBills { get; set; }
         public virtual DbSet<HomeStay> HomeStays { get; set; }
-        public virtual DbSet<HotelSevice> HotelSevices { get; set; }
         public virtual DbSet<MyWebSite> MyWebSites { get; set; }
         public virtual DbSet<Nation> Nations { get; set; }
         public virtual DbSet<PhanQuyen> PhanQuyens { get; set; }
@@ -42,6 +41,7 @@ namespace TraverGo.Models.DB
         public virtual DbSet<DestinationReview> DestinationReviews { get; set; }
         public virtual DbSet<DestinationTour> DestinationTours { get; set; }
         public virtual DbSet<detailBlog> detailBlogs { get; set; }
+        public virtual DbSet<detailService> detailServices { get; set; }
         public virtual DbSet<VIEW_detailCart> VIEW_detailCart { get; set; }
         public virtual DbSet<VIEW_top4Nation> VIEW_top4Nation { get; set; }
         public virtual DbSet<VIEW_top6DestianationTour> VIEW_top6DestianationTour { get; set; }
@@ -241,10 +241,6 @@ namespace TraverGo.Models.DB
                 .WithRequired(e => e.HomeStay)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<HotelSevice>()
-                .Property(e => e.IDHotel)
-                .IsFixedLength();
-
             modelBuilder.Entity<MyWebSite>()
                 .Property(e => e.phoneNum1)
                 .IsFixedLength()
@@ -435,6 +431,21 @@ namespace TraverGo.Models.DB
                 .IsFixedLength()
                 .IsUnicode(false);
 
+            modelBuilder.Entity<detailService>()
+                .Property(e => e.maKS)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<detailService>()
+                .Property(e => e.maDD)
+                .IsFixedLength()
+                .IsUnicode(false);
+
+            modelBuilder.Entity<detailService>()
+                .Property(e => e.phoneNum)
+                .IsFixedLength()
+                .IsUnicode(false);
+
             modelBuilder.Entity<VIEW_detailCart>()
                 .Property(e => e.cartID)
                 .IsFixedLength()
@@ -442,6 +453,11 @@ namespace TraverGo.Models.DB
 
             modelBuilder.Entity<VIEW_detailCart>()
                 .Property(e => e.username)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<VIEW_detailCart>()
+                .Property(e => e.maDD)
+                .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<VIEW_top4Nation>()

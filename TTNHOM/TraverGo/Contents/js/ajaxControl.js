@@ -11,7 +11,7 @@
         $.ajax({
             url: '/Destiantion/Get9product',
             contentType: 'application/html ; charset:utf-8',
-            data: { page:page },
+            data: { page: page },
             type: 'Get',
             dataType: 'html',
             success: function (result) {
@@ -125,11 +125,11 @@
             window.location.href = "/Account/Login";
         }
         else {
-            var dataModel =$('.contain_product_cart');
+            var dataModel = $('.contain_product_cart');
             $.ajax({
                 url: '/Cart/RemoveAllProduct',
                 contentType: 'application/html ; charset:utf-8',
-                data: {idCart: id_cart },
+                data: { idCart: id_cart },
                 type: 'Get',
                 dataType: 'html',
                 success: function (re) {
@@ -138,6 +138,8 @@
             });
         }
     });
+
+    $('.quantity').click(updateCart);
     //detail product
     $('.product_contain').click(function (e) {
         e.preventDefault();
@@ -170,4 +172,16 @@
             }
         });
     });
+    function updateCart() {
+        var sum = 0;
+        $('.contain_product_cart').find('tr').each(function () {
+            var cost = $(this).find('.cost_pro').text();
+            var sl = $(this).find('.soluong').val();
+            var tolcost = $(this).find('.toal_Cost');
+            tolcost.text((parseInt(cost) * parseInt(sl)).toString());
+            sum = sum + (parseInt(tolcost.text()));
+        });
+        $('.cart_tol').text(sum.toString());
+    }
+    
 });

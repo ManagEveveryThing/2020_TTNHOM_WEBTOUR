@@ -49,7 +49,8 @@ $(document).ready(function () {
             "hoKH": $("#sureName_re").val(),
             "email": $("#email_re").val(),
             "phoneNum": $("#phone_re").val(),
-            "job": $("#job_re").val()
+            "job": $("#job_re").val(),
+            "nameQ": "User"
         };
         var com_pass = $("#con-pass").val();
 

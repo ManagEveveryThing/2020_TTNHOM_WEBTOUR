@@ -58,6 +58,10 @@ namespace TraverGo.Controllers
                 if (AccountController.username != null)
                 {
                     model = context.Database.SqlQuery<VIEW_detailCart>("select * from VIEW_detailCart where username = '" + AccountController.username + "'").ToList();
+                    if (model.Count == 0)
+                    {
+                        ViewBag.CartID = context.Carts.Where(x => x.username == AccountController.username).First().cartID;
+                    }
                 }
                 var cart = (List<DetailCart>)Session["CartSession"];
                 // nếu trống thì tao mới

@@ -382,6 +382,7 @@
     <Content Include="Contents\js\aos.js" />
     <Content Include="Contents\js\bootstrap-datepicker.js" />
     <Content Include="Contents\js\bootstrap.min.js" />
+    <Content Include="Contents\CartPage\js\CartPage.js" />
     <Content Include="Contents\js\google-map.js" />
     <Content Include="Contents\js\jquery-3.2.1.min.js" />
     <Content Include="Contents\js\jquery-migrate-3.0.1.min.js" />
@@ -419,6 +420,7 @@
     <Compile Include="Models\DB\DestinationTour.cs" />
     <Compile Include="Models\DB\detailBlog.cs" />
     <Compile Include="Models\DB\DetailCart.cs" />
+    <Compile Include="Models\DB\detailService.cs" />
     <Compile Include="Models\DB\DSDatXe.cs" />
     <Compile Include="Models\DB\DSKSCanTT.cs" />
     <Compile Include="Models\DB\DSKSTheoTrip.cs" />
@@ -428,7 +430,6 @@
     <Compile Include="Models\DB\DSTripTheoTour.cs" />
     <Compile Include="Models\DB\ElecBill.cs" />
     <Compile Include="Models\DB\HomeStay.cs" />
-    <Compile Include="Models\DB\HotelSevice.cs" />
     <Compile Include="Models\DB\MyWebSite.cs" />
     <Compile Include="Models\DB\Nation.cs" />
     <Compile Include="Models\DB\PhanQuyen.cs" />
@@ -599,6 +600,7 @@
     <Content Include="Views\Shared\_PartialPage_CartProduct.cshtml" />
     <Content Include="Views\Shared\_PartialPage_ModalProduct.cshtml" />
     <Content Include="Views\Shared\_PartialPage_ResultSearch.cshtml" />
+    <Content Include="Views\Shared\_PartialPage_PaymentModal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

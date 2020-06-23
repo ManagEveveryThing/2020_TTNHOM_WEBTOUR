@@ -61,6 +61,7 @@ namespace TraverGo.Controllers
         [HttpPost]
         public JsonResult RegisAccount(Customer data)
         {
+            Random rd = new Random();
             if (data != null)
             {
                 var cus = db.Customers.Find(data.username);
@@ -68,6 +69,11 @@ namespace TraverGo.Controllers
                 {
                     db.Customers.Attach(data);
                     db.Customers.Add(data);
+                    Cart cart = new Cart();
+                    cart.cartID = "CART" + "000" + rd.Next(0, 9).ToString() + rd.Next(0, 9).ToString() + rd.Next(0, 9).ToString();
+                    cart.username = data.username;
+                    db.Carts.Attach(cart);
+                    db.Carts.Add(cart);
                     db.SaveChanges();
                     return Json(new { Success = true }, JsonRequestBehavior.AllowGet);
                 }
